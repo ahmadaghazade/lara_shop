@@ -4,5 +4,6 @@
     "Security": true,
     "Support": true,
     "Theme": true,
-    "User": true
+    "User": true,
+    "X": true
 }
