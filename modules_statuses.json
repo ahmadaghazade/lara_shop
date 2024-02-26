@@ -4,5 +4,7 @@
     "Security": true,
     "Support": true,
     "Theme": true,
-    "User": true
+    "User": true,
+    "Panel": true,
+    "Profile": true
 }
