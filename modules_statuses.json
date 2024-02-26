@@ -1,0 +1,8 @@
+{
+    "Base": true,
+    "Core": true,
+    "Security": true,
+    "Support": true,
+    "Theme": true,
+    "User": true
+}
