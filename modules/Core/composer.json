@@ -11,7 +11,8 @@
         "morilog/jalali": "^v3.4",
         "predis/predis": "^v2.2",
         "prettus/l5-repository": "^2.9",
-        "league/flysystem-aws-s3-v3": "^3.0"
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "cviebrock/eloquent-sluggable": "^10.0.0"
     },
     "autoload": {
         "psr-4": {

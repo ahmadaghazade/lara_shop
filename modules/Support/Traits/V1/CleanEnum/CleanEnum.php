@@ -42,7 +42,7 @@ trait CleanEnum
      */
     public function trans(): string
     {
-        return __('v1.' . self::moduleName() . '::enum.' . self::shortName() . '.' . Str::snake($this->name));
+        return __('v1.' . self::moduleName() . '::enum.' . self::shortName() . '.' . $this->name);
     }
 
     /**

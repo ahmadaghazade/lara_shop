@@ -2,15 +2,11 @@
 
 namespace Modules\Support\Enums\V1\SystemEvent;
 
+use Modules\Support\Traits\V1\EventableEnum\EventableEnum;
+
 enum SystemEvent: string
 {
-    case NewUserRegistered = 'new-user-registered';
+    use EventableEnum;
 
-    /**
-     * Call the system event
-     */
-    public function fire(...$params): void
-    {
-        event($this->value, ...$params);
-    }
+    case NewUserRegistered             = 'new-user-registered';
 }

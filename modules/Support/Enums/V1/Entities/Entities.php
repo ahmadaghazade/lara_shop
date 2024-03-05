@@ -6,17 +6,12 @@ use Illuminate\Support\Str;
 
 enum Entities: string
 {
-    case Modelable         = 'modelable';
-    case User              = 'user';
-    case Project           = 'project';
-    case ProjectUser       = 'project_user';
-    case Profile           = 'profile';
-    case Role              = 'role';
-    case Permission        = 'permission';
-    case CarManufacturer   = 'car manufacturer';
-    case CarModel          = 'car model';
-    case Car               = 'car';
-    case ManufacturerModel = 'car_manufacturer_car_model';
+    case User = 'user';
+    case Role = 'role';
+    case Permission = 'permission';
+    case ProfileLimitation = 'profile limitation';
+    case Category = 'category';
+    case Profile = 'profile';
     #region Logic
 
     /**
@@ -26,7 +21,9 @@ enum Entities: string
      */
     public function singular(): string
     {
-        return Str::of($this->value)->snake()->toString();
+        return Str::of($this->value)
+                  ->snake()
+                  ->toString();
     }
 
     /**
@@ -36,7 +33,9 @@ enum Entities: string
      */
     public function plural(): string
     {
-        return Str::of($this->value)->plural()->toString();
+        return Str::of($this->value)
+                  ->plural()
+                  ->toString();
     }
 
     /**
@@ -56,7 +55,9 @@ enum Entities: string
      */
     public function table(): string
     {
-        return Str::of($this->plural())->snake()->toString();
+        return Str::of($this->plural())
+                  ->snake()
+                  ->toString();
     }
 
     /**
@@ -66,7 +67,10 @@ enum Entities: string
      */
     public function foreign(): string
     {
-        return Str::of($this->value)->snake()->append('_id')->toString();
+        return Str::of($this->value)
+                  ->snake()
+                  ->append('_id')
+                  ->toString();
     }
     #endregion
 }

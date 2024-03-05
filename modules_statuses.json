@@ -6,5 +6,6 @@
     "Theme": true,
     "User": true,
     "Panel": true,
-    "Profile": true
+    "Profile": true,
+    "Category": true
 }

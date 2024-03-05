@@ -29,7 +29,10 @@ class ManagerPanelProvider extends PanelProvider
             ->login()
             ->colors($this->colors())
             ->pages($this->pages())
-            ->font('Dana-FaNum') // todo: use a local font
+            ->font(
+                family: 'Yekan Bakh FaNum',
+                url: '/fonts/yekanbakh/loader.css'
+            )
             ->widgets($this->widgets())
             ->middleware($this->middlewares())
             ->authMiddleware($this->middlewares(true))
