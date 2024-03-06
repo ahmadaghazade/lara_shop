@@ -11,8 +11,6 @@ use Filament\Tables\Columns\ToggleColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
-use Filament\Tables\Columns\SelectColumn;
-use Filament\Tables\Table;
 
 class CategorySchema extends Schema
 {
@@ -25,14 +23,13 @@ class CategorySchema extends Schema
     {
         return [
             TextInput::make(CategoryFields::TITLE)
-                     ->translateLabel(),
+                     ->modularTranslate(...self::keys()),
             TextInput::make(CategoryFields::DESCRIPTION)
-                     ->translateLabel(),
+                     ->modularTranslate(...self::keys()),
             FileUpload::make(CategoryFields::IMAGE)
-                      ->translateLabel(),
-            Toggle::make(CategoryFields::STATUS)->translateLabel(),
-
-
+                      ->modularTranslate(...self::keys()),
+            Toggle::make(CategoryFields::STATUS)
+                  ->modularTranslate(...self::keys()),
         ];
     }
 
@@ -45,29 +42,32 @@ class CategorySchema extends Schema
     {
         return [
             TextColumn::make(CategoryFields::ID)
+                      ->modularLabel(...self::keys())
                       ->sortable()
-                      ->translateLabel()
                       ->searchable(),
-
             TextColumn::make(CategoryFields::TITLE)
-                      ->translateLabel()
-                      ->searchable(),
+                      ->searchable()
+                      ->modularLabel(...self::keys()),
 
             TextColumn::make(CategoryFields::SLUG)
-                      ->searchable(),
+                      ->searchable()
+                      ->modularLabel(...self::keys()),
 
             TextColumn::make(CategoryFields::DESCRIPTION)
-                      ->searchable(),
+                      ->searchable()
+                      ->modularLabel(...self::keys()),
 
-            ImageColumn::make(CategoryFields::IMAGE),
+            ImageColumn::make(CategoryFields::IMAGE)
+                       ->modularLabel(...self::keys()),
 
-            TextColumn::make(CategoryFields::PARENT_ID),
+            TextColumn::make(CategoryFields::PARENT_ID)
+                      ->modularLabel(...self::keys())
+                      ->sortable(),
 
-            ToggleColumn::make(CategoryFields::STATUS),
+            ToggleColumn::make(CategoryFields::STATUS)
+                        ->modularLabel(...self::keys()),
         ];
     }
-
-
 
 
     /**
